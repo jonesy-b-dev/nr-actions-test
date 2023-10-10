@@ -11,7 +11,7 @@ describe('Node-RED Flow Tests', function () {
     // Replace this with the payload you want to inject in your flow
     const injectPayload = {
       // Your inject payload goes here
-      msg = "Hello World";
+      msg : "Hello World"
     };
 
     // Send an HTTP POST request to the Node-RED inject endpoint
