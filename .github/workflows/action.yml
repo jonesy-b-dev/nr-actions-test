@@ -25,7 +25,7 @@ jobs:
       run: npm install -g node-red
 
     - name: Start Node-RED
-      run: node-red
+      run: node-red &
 
     - name: Wait for Node-RED to start
       run: |
