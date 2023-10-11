@@ -25,7 +25,7 @@ jobs:
       run: npm install -g node-red
 
     - name: Deploy Node-RED Flow
-      run: node-red --userDir /nr-actions-test --flow flows.json
+      run: node-red --userDir ${{ github.workspace }} --flow flows.json
       
     - name: Wait for Node-RED to start
       run: |
