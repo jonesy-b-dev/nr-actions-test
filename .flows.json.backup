@@ -8,6 +8,13 @@
         "env": []
     },
     {
+        "id": "4cf24073b2ca22de",
+        "type": "freshdeskCredentials",
+        "name": "",
+        "domain": "sdf",
+        "apiKey": "ben"
+    },
+    {
         "id": "4b70595fc25c05e6",
         "type": "inject",
         "z": "16779de302cf9907",
@@ -28,11 +35,11 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 320,
-        "y": 180,
+        "x": 240,
+        "y": 160,
         "wires": [
             [
-                "9c2e1762dfc46940"
+                "9ad737848af0ade8"
             ]
         ]
     },
@@ -40,16 +47,78 @@
         "id": "9c2e1762dfc46940",
         "type": "debug",
         "z": "16779de302cf9907",
-        "name": "debug 1",
+        "name": "debug1",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
-        "y": 180,
+        "x": 680,
+        "y": 160,
         "wires": []
+    },
+    {
+        "id": "e94d5dcb2c6b6966",
+        "type": "http in",
+        "z": "16779de302cf9907",
+        "name": "",
+        "url": "test",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 280,
+        "wires": [
+            [
+                "9ad737848af0ade8"
+            ]
+        ]
+    },
+    {
+        "id": "01bfeaace13dd499",
+        "type": "http response",
+        "z": "16779de302cf9907",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 610,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "9ad737848af0ade8",
+        "type": "template",
+        "z": "16779de302cf9907",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "This is the payload: {{payload}} !",
+        "output": "str",
+        "x": 420,
+        "y": 280,
+        "wires": [
+            [
+                "9c2e1762dfc46940",
+                "01bfeaace13dd499"
+            ]
+        ]
+    },
+    {
+        "id": "63edd8f4027bb8a8",
+        "type": "freshdesk-get-contact-by-id",
+        "z": "16779de302cf9907",
+        "name": "",
+        "freshdesk": "4cf24073b2ca22de",
+        "contactId": "id",
+        "x": 380,
+        "y": 440,
+        "wires": [
+            []
+        ]
     }
 ]
