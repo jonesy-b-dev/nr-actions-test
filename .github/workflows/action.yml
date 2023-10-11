@@ -35,6 +35,3 @@ jobs:
         done
     - name: Run Node-RED Flow Tests
       run: npm test
-
-    - name: Stop Node-RED
-      run: npm stop
