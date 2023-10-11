@@ -107,18 +107,5 @@
                 "01bfeaace13dd499"
             ]
         ]
-    },
-    {
-        "id": "63edd8f4027bb8a8",
-        "type": "freshdesk-get-contact-by-id",
-        "z": "16779de302cf9907",
-        "name": "",
-        "freshdesk": "4cf24073b2ca22de",
-        "contactId": "id",
-        "x": 380,
-        "y": 440,
-        "wires": [
-            []
-        ]
     }
 ]
