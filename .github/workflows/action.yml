@@ -1,0 +1,41 @@
+name: Node-RED Flow Testing
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+
+    - name: Install npm
+      run: npm install
+
+    - name: Install mocha and chai
+      run: npm install -dev mocha chai chai-http
+      
+    - name: install node-red
+      run: npm install -g node-red
+
+    - name: Start Node-RED
+      run: node-red &
+
+    - name: Wait for Node-RED to start
+      run: |
+        while ! curl -s http://127.0.0.1:1880
+        do
+          sleep 6
+        done
+
+    - name: Run Node-RED Flow Tests
+      run: npm test
+
+    - name: Stop Node-RED
+      run: npm stop
