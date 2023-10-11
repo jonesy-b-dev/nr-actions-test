@@ -6,7 +6,7 @@ const expect = chai.expect;
 describe('Node-RED Flow Tests', function () {
   it('should test the Node-RED flow', function (done) {
     // Replace this with the appropriate URL for your Node-RED instance
-    const nodeRedURL = '127.0.0.1:1880';
+    const nodeRedURL = 'http://127.0.0.1:1880';
 
     // Replace this with the payload you want to inject in your flow
     const injectPayload = {
@@ -17,7 +17,7 @@ describe('Node-RED Flow Tests', function () {
     // Send an HTTP POST request to the Node-RED inject endpoint
     chai
       .request(nodeRedURL)
-      .get('/test')
+      .get('/testTwo')
       //.send(injectPayload)
       .end(function (err, res) {
         expect(err).to.be.null;
