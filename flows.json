@@ -8,13 +8,6 @@
         "env": []
     },
     {
-        "id": "4cf24073b2ca22de",
-        "type": "freshdeskCredentials",
-        "name": "",
-        "domain": "sdf",
-        "apiKey": "ben"
-    },
-    {
         "id": "4b70595fc25c05e6",
         "type": "inject",
         "z": "16779de302cf9907",

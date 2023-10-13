@@ -1,34 +1,36 @@
+// Include the required packages for testing
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-chai.use(chaiHttp);
+chai.use(chaiHttp); 
 const expect = chai.expect;
 
-describe('Node-RED Flow Tests', function () {
-  it('should test the Node-RED flow', function (done) {
-    // Replace this with the appropriate URL for your Node-RED instance
+// Describe the test suite
+describe('Node-RED Flow Test', function () {
+  // Define a test case
+  it('Check if status code of 200 is recieved', function (done) {
+    // Set the base URL for the request
     const nodeRedURL = 'http://127.0.0.1:1880';
 
-    // Replace this with the payload you want to inject in your flow
+    // Any body that you want to inject in the flow can go over here
     const injectPayload = {
-      // Your inject payload goes here
-      msg : "Hello World"
+      msg: "Hello World"
     };
 
-    // Send an HTTP POST request to the Node-RED inject endpoint
+    // Send an HTTP GET request to the Node-RED inject endpoint using chai
     chai
       .request(nodeRedURL)
-      .get('/testTwo')
-      //.send(injectPayload)
+      .get('/testTwo') 
+      //.send(injectPayload) // Uncomment this line to send the injectPayload with the request
       .end(function (err, res) {
-        expect(err).to.be.null;
-        expect(res).to.have.status(200);
+        expect(err).to.be.null; // Ensure there are no errors during the request
+        expect(res).to.have.status(200); // Expect a successful HTTP response (status code 200)
+
+        // Extract and display the response body (debug output)
         const debugOutput = res.body;
         console.log(debugOutput);
-        
-        done();
 
-        // Replace 'debug-node-output' with the name of your debug node
-        // and 'expected-output' with the expected output you're looking for
+        // Indicate that the test case is finished
+        done();
       });
   });
 });
